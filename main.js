@@ -1,68 +1,80 @@
-// Инициализация GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Инициализация GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    
-    // Анимации главного экрана (Hero)
+    // 2. Анимация Hero Screen
     const tlHero = gsap.timeline();
-    
-    tlHero.from(".logo-gold", { y: -20, opacity: 0, duration: 0.8, ease: "power3.out" })
+    tlHero.from(".badge", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" })
           .from(".hero-title", { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
           .from(".hero-subtitle", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
-          .from(".jar-mockup", { scale: 0.8, opacity: 0, duration: 1, ease: "back.out(1.7)" }, "-=0.4")
-          .from(".drop", { scale: 0, opacity: 0, duration: 0.6, stagger: 0.1, ease: "back.out(2)" }, "-=0.5")
-          .from(".hero .important-note", { y: 30, opacity: 0, duration: 0.8 }, "-=0.2");
+          .from(".hero-jar", { scale: 0.8, opacity: 0, duration: 1.2, ease: "elastic.out(1, 0.5)" }, "-=0.4")
+          .from(".trust-triggers span", { y: 10, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.8");
 
-    // Анимация "рождения" формулы при скролле (капли стягиваются к банке)
-    gsap.to(".drop", {
-        scrollTrigger: {
-            trigger: ".hero-visual",
-            start: "center center",
-            end: "bottom top",
-            scrub: 1,
-        },
-        x: 0,
-        y: 0,
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%) scale(0.5)",
-        opacity: 0,
-        duration: 1
-    });
+    // 3. Анимация WOW-секции (Сборка 4 ингредиентов)
+    // Размещаем ингредиенты по углам перед анимацией
+    gsap.set("#ing-oregano", { top: "10%", left: "10%" });
+    gsap.set("#ing-clove", { top: "10%", right: "10%" });
+    gsap.set("#ing-lemon", { bottom: "10%", left: "10%" });
+    gsap.set("#ing-tmin", { bottom: "10%", right: "10%" });
 
-    // Анимация секции "Кишечник"
-    const tlGut = gsap.timeline({
+    const tlWow = gsap.timeline({
         scrollTrigger: {
-            trigger: "#gut",
-            start: "top 70%",
-            end: "bottom 80%",
-            toggleActions: "play none none reverse"
+            trigger: "#wow",
+            start: "top center",
+            end: "center center",
+            scrub: 1 // Привязка к скроллу
         }
     });
 
-    tlGut.from("#gut .section-title", { y: 30, opacity: 0, duration: 0.6 })
-         .from("#gut .section-subtitle", { y: 20, opacity: 0, duration: 0.6 }, "-=0.4")
-         .from(".body-mockup", { opacity: 0, scale: 0.9, duration: 0.8 }, "-=0.4")
-         .from(".info-item", { x: (i) => i % 2 === 0 ? -50 : 50, opacity: 0, duration: 0.6, stagger: 0.2 }, "-=0.4")
-         .from(".glass-note", { y: 30, opacity: 0, duration: 0.6 }, "-=0.2");
+    // Ингредиенты летят в центр
+    tlWow.to(".ingredient-sphere", {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        xPercent: -50,
+        yPercent: -50,
+        duration: 2,
+        ease: "power2.inOut"
+    })
+    // Ингредиенты исчезают
+    .to(".ingredient-sphere", { opacity: 0, scale: 0, duration: 0.5 })
+    // Появляется и пульсирует ядро OILX
+    .to("#oilx-core", { opacity: 1, scale: 1, duration: 1, ease: "elastic.out(1, 0.5)" });
 
-    // Анимация секции FAQ (Логика формулы)
-    gsap.from(".faq-card", {
-        scrollTrigger: {
-            trigger: "#faq",
-            start: "top 80%",
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power2.out"
+    // 4. Появление карточек (Fade-up)
+    const fadeElements = gsap.utils.toArray('.glass-card');
+    fadeElements.forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out"
+        });
     });
 
-    // Навигация (смена фона при скролле)
-    ScrollTrigger.create({
-        start: "top -50",
-        end: 99999,
-        toggleClass: {className: "scrolled", targets: ".navbar"}
+    // 5. Логика FAQ (Аккордеон)
+    const accHeaders = document.querySelectorAll('.acc-header');
+    accHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const body = this.nextElementSibling;
+            const isOpen = body.style.display === 'block';
+            
+            // Закрываем все
+            document.querySelectorAll('.acc-body').forEach(b => b.style.display = 'none');
+            document.querySelectorAll('.acc-header').forEach(h => h.style.color = 'inherit');
+            
+            // Открываем кликнутый
+            if (!isOpen) {
+                body.style.display = 'block';
+                this.style.color = 'var(--gold)';
+                // Простая анимация появления
+                gsap.from(body, { opacity: 0, y: -10, duration: 0.3 });
+            }
+        });
     });
 });
