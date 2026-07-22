@@ -1,0 +1,420 @@
+/* Базовые стили и переменные */
+:root {
+    --primary-color: #1a1a1a;
+    --gold-color: #d4af37;
+    --gold-dark: #b89329;
+    --bg-light: #f4f4f6;
+    --white: #ffffff;
+    --gray: #666666;
+    --blue-gradient: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+    --shadow-card: 0 15px 35px rgba(0,0,0,0.1);
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Утилиты */
+.text-center { text-align: center; }
+.text-white { color: var(--white); }
+.text-light { color: rgba(255,255,255,0.8); }
+.text-gray { color: var(--gray); }
+.mt-2 { margin-top: 2rem; }
+
+/* Навигация */
+.navbar {
+    padding: 20px 0;
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: background 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--gold-color);
+}
+
+.lang-switcher span {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.lang-switcher span.active, .lang-switcher span:hover {
+    color: var(--gold-color);
+    font-weight: 600;
+}
+
+/* Типографика */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.section-subtitle-small {
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+/* Важное примечание (карточка внизу) */
+.important-note {
+    background: var(--white);
+    padding: 20px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    display: inline-block;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
+
+.important-note strong {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(circle at center, #ffffff 0%, var(--bg-light) 100%);
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.logo-gold {
+    color: var(--gold-color);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-visual {
+    position: relative;
+    height: 400px;
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Мокап банки и капель */
+.jar-mockup {
+    width: 150px;
+    height: 220px;
+    background: #1a2a3a;
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.5), 0 30px 40px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jar-label {
+    width: 90%;
+    height: 70%;
+    background: #398897;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.jar-label h2 { margin: 0; font-size: 2rem; }
+.jar-label span { font-size: 0.5rem; text-align: center; }
+
+.drop {
+    width: 60px;
+    height: 80px;
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: inset 5px 5px 15px rgba(255,255,255,0.8), inset -5px -5px 15px rgba(0,0,0,0.2), 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.drop::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.drop-thymoquinone { background: radial-gradient(circle at 30% 30%, #555, #111); top: 20%; right: 20%; }
+.drop-carvacrol { background: radial-gradient(circle at 30% 30%, #9bc57d, #5d8f3a); top: 20%; left: 20%; }
+.drop-eugenol { background: radial-gradient(circle at 30% 30%, #d4a373, #8b5a2b); bottom: 20%; right: 20%; }
+.drop-limonene { background: radial-gradient(circle at 30% 30%, #ffe066, #d4af37); bottom: 20%; left: 20%; }
+
+/* Секция: Кишечник */
+.section-dark {
+    background: var(--blue-gradient);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.infographic-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 0;
+    position: relative;
+    max-width: 800px;
+    margin: 4rem auto;
+}
+
+.body-mockup {
+    width: 200px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px; /* Упрощенно вместо сложного 3D рендера */
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.glow-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #ffb347 0%, transparent 70%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px #ffb347;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.info-item.left { flex-direction: row-reverse; }
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.glass-note {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+}
+.glass-note strong { color: #ffb347; }
+
+/* FAQ Секция */
+.formula-logic {
+    padding: 100px 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 3rem;
+}
+
+.faq-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-card:hover {
+    transform: translateY(-5px);
+}
+
+.faq-card.highlight-card {
+    border-color: var(--gold-color);
+}
+
+.faq-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.faq-card p {
+    font-size: 0.95rem;
+    color: var(--gray);
+}
+
+/* Адаптивность (Mobile) */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    
+    .infographic-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .info-item.left { flex-direction: row; }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Галерея и анимации наведения */
+.visual-gallery {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    background: var(--bg-light);
+    aspect-ratio: 16/9; 
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    background: #e0e0e0; 
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+.overlay-text {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+/* Эффект блика (Shine) */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Hover анимации */
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08) rotate(1deg);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover .overlay-text {
+    transform: translateY(0);
+}
+
+.gallery-item:hover::after {
+    left: 200%;
+}
