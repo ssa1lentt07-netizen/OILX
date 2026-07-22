@@ -226,10 +226,10 @@ section {
     background-position: center;
 }
 /* Rough positioning for Drops */
-.drop-tl { top: 20%; left: 20%; background-image: url('../assets/drop-green.png'); }
-.drop-tr { top: 20%; right: 20%; background-image: url('../assets/drop-orange.png'); }
-.drop-bl { bottom: 20%; left: 20%; background-image: url('../assets/drop-yellow.png'); }
-.drop-br { bottom: 20%; right: 20%; background-image: url('../assets/drop-black.png'); }
+.drop-tl { top: 20%; left: 20%; background-image: url('./drop-green.png'); }
+.drop-tr { top: 20%; right: 20%; background-image: url('./drop-orange.png'); }
+.drop-bl { bottom: 20%; left: 20%; background-image: url('./drop-yellow.png'); }
+.drop-br { bottom: 20%; right: 20%; background-image: url('./drop-black.png'); }
 
 /* Stress Slide (Slide 4) */
 .stress-grid {
