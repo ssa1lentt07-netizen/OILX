@@ -206,4 +206,55 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // 6. Auto-scrolling Reviews
+    const reviewSlider = document.querySelector('.reviews-slider');
+    if (reviewSlider) {
+        let isHovered = false;
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        // Auto-scroll loop
+        const autoScroll = () => {
+            if (!isHovered && !isDown) {
+                reviewSlider.scrollLeft += 1;
+                if (reviewSlider.scrollLeft >= (reviewSlider.scrollWidth - reviewSlider.clientWidth)) {
+                    reviewSlider.scrollLeft = 0; // Loop back
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        };
+        requestAnimationFrame(autoScroll);
+
+        // Events to pause auto-scroll
+        reviewSlider.addEventListener('mouseenter', () => isHovered = true);
+        reviewSlider.addEventListener('mouseleave', () => isHovered = false);
+        reviewSlider.addEventListener('touchstart', () => isHovered = true);
+        reviewSlider.addEventListener('touchend', () => isHovered = false);
+
+        // Manual dragging logic
+        reviewSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            isHovered = true; // Pause auto scroll
+            reviewSlider.style.cursor = 'grabbing';
+            startX = e.pageX - reviewSlider.offsetLeft;
+            scrollLeft = reviewSlider.scrollLeft;
+        });
+        reviewSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+            reviewSlider.style.cursor = 'grab';
+        });
+        reviewSlider.addEventListener('mouseup', () => {
+            isDown = false;
+            reviewSlider.style.cursor = 'grab';
+        });
+        reviewSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - reviewSlider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            reviewSlider.scrollLeft = scrollLeft - walk;
+        });
+    }
 });

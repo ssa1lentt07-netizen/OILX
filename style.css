@@ -254,14 +254,12 @@ nav.scrolled {
 /* REVIEWS SLIDER */
 .reviews-slider {
   width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  overflow-x: hidden; /* Hide scrollbar for clean look, let JS handle it */
   padding: 20px 0;
-  -webkit-overflow-scrolling: touch;
+  cursor: grab;
 }
-.reviews-slider::-webkit-scrollbar {
-  height: 8px;
+.reviews-slider:active {
+  cursor: grabbing;
 }
 .review-track {
   display: flex;
@@ -271,7 +269,6 @@ nav.scrolled {
 }
 .review-card {
   width: 350px;
-  scroll-snap-align: center;
   flex-shrink: 0;
 }
 .review-stars {
@@ -279,6 +276,30 @@ nav.scrolled {
   font-size: 1.2rem;
   margin-bottom: 15px;
   letter-spacing: 2px;
+}
+
+/* PARALLAX BANNERS */
+.parallax-banner {
+  width: 100%;
+  height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+.parallax-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 7, 10, 0.4);
+}
+.parallax-banner.bg-water {
+  background-image: url('./bg_water.jpg');
+}
+.parallax-banner.bg-silk {
+  background-image: url('./bg_silk.jpg');
 }
 
 /* STRESS FLOW */
