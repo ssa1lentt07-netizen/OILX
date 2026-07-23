@@ -3,250 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OILX - Клиническая матрица восстановления</title>
-    <meta name="description" content="OILX: 4 активных компонента. Одна продуманная формула. Поддержка кишечника, пищеварения и иммунитета.">
+    <title>OILX - Премиальная матрица восстановления</title>
     
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <!-- Навигация -->
-    <nav class="navbar glass">
-        <div class="container nav-container">
-            <div class="logo">BoonLab</div>
-            <div class="lang-switcher">
-                <span class="active">RU</span> / <span>KZ</span> / <span>EN</span>
-            </div>
-            <a href="#buy" class="btn-primary nav-btn">Купить OILX</a>
-        </div>
+    <!-- Анимация падающих капель масла (Вместо сакуры) -->
+    <div class="drops-container" id="drops-container"></div>
+
+    <!-- Navigation -->
+    <nav id="nav-bar">
+        <a href="#hero" class="logo">BoonLab <span>ラボ</span></a>
+        <ul class="nav-links">
+            <li><a href="#science">Наука</a></li>
+            <li><a href="#composition">Состав</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#buy">Купить</a></li>
+        </ul>
+        <a href="#buy" class="nav-cta">Предзаказ</a>
     </nav>
 
-    <!-- 1. Hero Screen (Slide 1) -->
-    <section class="hero" id="hero">
-        <div class="container text-center">
-            <h1 class="hero-title"><span>OILX:</span> Клиническая матрица восстановления</h1>
-            <p class="hero-subtitle mt-2">Комплексная система поддержки кишечника, микробного баланса<br>и иммунитета на основе четырех синергичных экстрактов.</p>
-            
-            <div class="hero-visual">
-                <div class="drop drop-tl"></div>
-                <div class="drop drop-tr"></div>
-                <img src="./oilx-jar.png" alt="OILX Bottle" class="jar-mockup hero-jar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'300\' viewBox=\'0 0 200 300\'%3E%3Crect width=\'200\' height=\'300\' fill=\'%23111\' rx=\'20\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'sans-serif\' font-size=\'24\' fill=\'%23d4af37\' text-anchor=\'middle\' dy=\'.3em\'%3EOILX%3C/text%3E%3C/svg%3E'">
-                <div class="drop drop-bl"></div>
-                <div class="drop drop-br"></div>
+    <!-- 1. Hero Screen -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="status-dot"></div>
+                Доступно для заказа · Ограниченная партия
             </div>
-
-            <div class="important-note mx-auto">
-                <strong>ЧТО ВАЖНО ПОМНИТЬ:</strong> OILX — это не просто масло черного тмина.<br>
-                Это премиальная система из 4 компонентов для глубокой работы с микробиомом.
+            <h1 class="hero-title">Почувствуйте <em>Элегантность</em><br>Восстановления</h1>
+            <div class="hero-kanji">プレミアム · OILX MATRIX</div>
+            <p class="hero-desc">Клиническая матрица поддержки кишечника, микробного баланса и иммунитета на основе четырех синергичных экстрактов. Создано для тех, кто живет на максимуме.</p>
+            <div class="hero-btns">
+                <a href="#buy" class="btn btn-primary">Купить OILX</a>
+                <a href="#science" class="btn btn-secondary">Узнать больше</a>
             </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="hero-scroll-line"></div>
         </div>
     </section>
 
-    <!-- 2. Узнай себя -->
-    <section class="audiences section-light" id="audiences">
+    <!-- 2. Что разрушает наш внутренний сад -->
+    <section id="science">
         <div class="container">
-            <h2 class="section-title text-center">Создано для тех, кто живет на максимуме</h2>
+            <div class="section-label">Проблема</div>
+            <h2 class="section-title">Что разрушает наш <em>внутренний сад</em>?</h2>
+            <p class="section-subtitle">Стресс, экология и питание истощают микробиом каждый день.</p>
+            
             <div class="grid-3 mt-4">
-                <div class="card glass-card">
-                    <div class="card-icon">💼</div>
-                    <h3>Предприниматели</h3>
-                    <p>Для тех, кому нужен фокус 24/7 и иммунитет к стрессу.</p>
+                <div class="dark-card">
+                    <div class="card-icon">🦠</div>
+                    <h3>Патогены</h3>
+                    <p>Кандида, паразиты, скрытые воспаления.</p>
                 </div>
-                <div class="card glass-card">
-                    <div class="card-icon">💻</div>
-                    <h3>Офисные сотрудники</h3>
-                    <p>Для тех, кто сидит по 8 часов и забывает о питании.</p>
+                <div class="dark-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Стресс</h3>
+                    <p>Повышенный кортизол уничтожает полезные бактерии.</p>
                 </div>
-                <div class="card glass-card">
-                    <div class="card-icon">👨‍👩‍👧</div>
-                    <h3>Родители</h3>
-                    <p>Для тех, кому нужна энергия после бессонных ночей.</p>
+                <div class="dark-card">
+                    <div class="card-icon">💊</div>
+                    <h3>Антибиотики</h3>
+                    <p>Нарушение микрофлоры после лекарств и пищевой химии.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Современный образ жизни (Slide: Что разрушает наш внутренний сад) -->
-    <section class="stress-flow section-blue" id="stress">
-        <div class="container">
-            <h2 class="section-title text-white text-center">Что разрушает наш внутренний сад?</h2>
-            <p class="section-subtitle text-center text-white mb-4">Современный образ жизни создает идеальные условия для роста патогенов<br>и хронического воспаления. Сорняки получают преимущество.</p>
-            
-            <div class="stress-grid mt-4">
-                <div class="stress-item">
-                    <div class="icon-circle" style="background: transparent; border: 2px solid #fff;">🧊</div>
-                    <div>
-                        <h3>Избыток сахара</h3>
-                        <p>Питает кандиду и грибки</p>
-                    </div>
-                </div>
-                <div class="stress-item">
-                    <div class="icon-circle" style="background: transparent; border: 2px solid #fff;">⚡</div>
-                    <div>
-                        <h3>Хронический стресс</h3>
-                        <p>Ослабляет иммунную защиту</p>
-                    </div>
-                </div>
-                <div class="stress-item">
-                    <div class="icon-circle" style="background: transparent; border: 2px solid #fff;">💊</div>
-                    <div>
-                        <h3>Прием антибиотиков</h3>
-                        <p>Убивает полезную флору</p>
-                    </div>
-                </div>
-                <div class="stress-item">
-                    <div class="icon-circle" style="background: transparent; border: 2px solid #fff;">🌙</div>
-                    <div>
-                        <h3>Недостаток сна</h3>
-                        <p>Замедляет клеточное восстановление</p>
-                    </div>
-                </div>
-                <div class="stress-item">
-                    <div class="icon-circle" style="background: transparent; border: 2px solid #fff;">🍏</div>
-                    <div>
-                        <h3>Бедное питание</h3>
-                        <p>Лишает полезные бактерии еды</p>
-                    </div>
-                </div>
-                <div class="stress-item">
-                    <div class="icon-circle" style="background: transparent; border: 2px solid #fff;">🔥</div>
-                    <div>
-                        <h3>Хроническое воспаление</h3>
-                        <p>Разрушает слизистую оболочку</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="important-note blue mx-auto mt-4">
-                <strong>ЧТО ВАЖНО ПОМНИТЬ:</strong><br>
-                Современный ритм жизни неизбежно нарушает баланс. Клиенту нужна помощь,<br>чтобы вернуть систему в норму.
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Результат -->
-    <section class="result section-gold" id="result">
+    <!-- 3. Синдром дырявого кишечника -->
+    <section>
         <div class="container text-center">
-            <h2 class="section-title text-white">Что вы хотите чувствовать каждый день?</h2>
-            <p class="section-subtitle-large text-white mt-2">Ясность ума. Легкость в теле. Железобетонный иммунитет.</p>
+            <div class="section-label">Следствие</div>
+            <h2 class="section-title">Синдром <em>дырявого кишечника</em></h2>
+            <p class="section-subtitle">Токсины попадают в кровь, вызывая усталость, аллергии и туман в голове.</p>
+            <div class="important-note mx-auto" style="text-align: left; max-width: 800px;">
+                <strong>80% иммунитета</strong> формируется в кишечнике. Если он поврежден, страдает весь организм.
+            </div>
         </div>
     </section>
 
-    <!-- 5. Кишечник важнее -->
-    <section class="gut-health section-light" id="gut">
+    <!-- 4. Как это ощущается -->
+    <section>
         <div class="container">
-            <h2 class="section-title text-center">Кишечник — ваш «Второй мозг»</h2>
-            <p class="section-subtitle text-center">Около 70% вашей иммунной системы находится именно там.</p>
+            <div class="section-label">Симптомы</div>
+            <h2 class="section-title">Как это <em>ощущается</em>?</h2>
             
-            <div class="infographic-container mt-4">
-                <div class="info-item left">
-                    <div class="icon-circle gold">⚡</div>
-                    <span>Энергия</span>
-                </div>
-                <div class="info-item left">
-                    <div class="icon-circle gold">⚖️</div>
-                    <span>Ровное настроение</span>
-                </div>
-                
-                <div class="body-mockup gut-glow">
-                    <div class="glow-center"></div>
-                </div>
-                
-                <div class="info-item right">
-                    <div class="icon-circle gold">✨</div>
-                    <span>Чистая кожа</span>
-                </div>
-                <div class="info-item right">
-                    <div class="icon-circle gold">🛡️</div>
-                    <span>Крепкий иммунитет</span>
-                </div>
+            <div class="grid-4 mt-4">
+                <div class="dark-card text-center" style="padding: 30px 20px;">Усталость</div>
+                <div class="dark-card text-center" style="padding: 30px 20px;">Вздутие</div>
+                <div class="dark-card text-center" style="padding: 30px 20px;">Проблемы с кожей</div>
+                <div class="dark-card text-center" style="padding: 30px 20px;">Туман в голове</div>
             </div>
         </div>
     </section>
 
-    <!-- 6. WOW-Анимация: Рождение OILX -->
-    <section class="wow-animation section-dark" id="wow">
-        <div class="container">
-            <h2 class="section-title text-center text-white">4 компонента. 1 формула.</h2>
-            <div class="wow-canvas mt-4">
-                <div class="ingredient-sphere" id="ing-oregano">Орегано</div>
-                <div class="ingredient-sphere" id="ing-clove">Гвоздика</div>
-                <div class="ingredient-sphere" id="ing-lemon">Лимон</div>
-                <div class="ingredient-sphere" id="ing-tmin">Тмин</div>
-                <div class="oilx-core" id="oilx-core">OILX</div>
-            </div>
+    <!-- 5. OILX - Решение -->
+    <section>
+        <div class="container text-center">
+            <div class="section-label">Решение</div>
+            <h2 class="section-title">OILX: <em>Клиническая матрица</em></h2>
+            <p class="section-subtitle mx-auto">Не просто масло черного тмина. Это премиальная система из 4 компонентов для глубокой работы с микробиомом.</p>
+            <br>
+            <a href="#buy" class="btn btn-primary">Попробовать</a>
         </div>
     </section>
 
-    <!-- 7. Как работает OILX -->
-    <section class="how-it-works section-light" id="roles">
+    <!-- 6. Как работает OILX (Логика 1-2-3-4) -->
+    <section>
         <div class="container">
-            <h2 class="section-title text-center">Каскадная система очистки</h2>
-            <div class="roles-grid mt-4">
-                <div class="role-card glass-card">
-                    <div class="role-number">1</div>
-                    <h3>Орегано</h3>
-                    <p>Подавляет патогены и грибки (Candida).</p>
-                </div>
-                <div class="role-card glass-card">
-                    <div class="role-number">2</div>
-                    <h3>Гвоздика</h3>
-                    <p>Парализует паразитов и снимает спазмы.</p>
-                </div>
-                <div class="role-card glass-card">
-                    <div class="role-number">3</div>
-                    <h3>Лимон</h3>
-                    <p>Выводит токсины из печени и лимфы.</p>
-                </div>
-                <div class="role-card glass-card">
-                    <div class="role-number">4</div>
-                    <h3>Черный тмин</h3>
-                    <p>Заживляет слизистую и питает микробиом.</p>
+            <div class="section-label">Механика</div>
+            <h2 class="section-title">Как работает <em>OILX</em></h2>
+            
+            <div class="stress-flow mt-4">
+                <div class="container flow-container">
+                    <div class="flow-step highlight">1. Очищение</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">2. Заживление</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">3. Защита</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step highlight">4. Баланс</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 8. Почему не просто тмин (Сравнение) -->
-    <section class="comparison section-dark" id="compare">
-        <div class="container">
-            <h2 class="section-title text-center text-white">Почему OILX лучше обычного масла?</h2>
-            <div class="compare-table mt-4">
-                <div class="compare-row header">
-                    <div class="compare-col">Характеристика</div>
-                    <div class="compare-col highlight">OILX</div>
-                    <div class="compare-col">Обычное масло тмина</div>
+            
+            <div class="grid-2 mt-4">
+                <div class="dark-card">
+                    <h3>Очищение и подавление патогенов</h3>
+                    <p>Тимохинон и Карвакрол разрушают биопленки кандиды и паразитов.</p>
                 </div>
-                <div class="compare-row">
-                    <div class="compare-col">Действие</div>
-                    <div class="compare-col highlight">Каскадная очистка (4 фазы)</div>
-                    <div class="compare-col">Базовое питание</div>
+                <div class="dark-card">
+                    <h3>Заживление стенок кишечника</h3>
+                    <p>Снятие воспаления и восстановление слизистой.</p>
                 </div>
-                <div class="compare-row">
-                    <div class="compare-col">Биодоступность</div>
-                    <div class="compare-col highlight">Softgel капсулы (максимум)</div>
-                    <div class="compare-col">Жидкое (теряется часть)</div>
+                <div class="dark-card">
+                    <h3>Стимуляция пищеварения</h3>
+                    <p>D-Лимонен улучшает отток желчи и работу печени.</p>
                 </div>
-                <div class="compare-row">
-                    <div class="compare-col">Безопасность</div>
-                    <div class="compare-col highlight">Защита слизистой желудка</div>
-                    <div class="compare-col">Может вызвать изжогу</div>
+                <div class="dark-card">
+                    <h3>Модуляция иммунитета</h3>
+                    <p>Эвгенол повышает сопротивляемость вирусам.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 9. Состав -->
-    <section class="composition section-light" id="composition">
+    <section id="composition">
         <div class="container">
-            <h2 class="section-title text-center">Чистый состав. Ничего лишнего.</h2>
-            <div class="composition-grid mt-4">
+            <div class="section-label">Формула</div>
+            <h2 class="section-title text-center">Чистый состав. <em>Ничего лишнего.</em></h2>
+            
+            <div class="grid-4 mt-4">
                 <div class="comp-card">
                     <div class="comp-img-wrapper">
                         <img src="./tmin.jpg" alt="Черный тмин" class="img-front">
@@ -280,223 +197,109 @@
                     <span class="active-comp">D-Лимонен 70%</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 10. Дозировки -->
-    <section class="dosages section-dark" id="dosages">
-        <div class="container text-center">
-            <h2 class="section-title text-white">Выверенные дозировки</h2>
-            <p class="section-subtitle text-light mt-2">В каждой капсуле: 20мг Орегано, 20мг Гвоздики, 10мг Лимона на базе Масла Черного Тмина.</p>
-            <div class="dosage-warning glass-card mt-4 mx-auto" style="max-width: 600px;">
-                <strong>Важно:</strong> Больше — не значит лучше. 20мг мощного эфирного масла Орегано — это клинически доказанный предел для ежедневного применения без вреда для полезной флоры.
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. Технология Softgel & 12. Упаковка -->
-    <section class="technology section-light" id="tech">
-        <div class="container">
-            <div class="grid-2 mt-4" style="align-items: center;">
-                <div class="tech-info">
-                    <h2 class="section-title">Технология Softgel</h2>
-                    <p class="mt-2 text-gray">Желатиновая капсула защищает эфирные масла от окисления и растворяется именно там, где нужно — в кишечнике.</p>
-                    <h2 class="section-title mt-4">Упаковка One-Touch</h2>
-                    <p class="mt-2 text-gray">Темное стекло блокирует УФ-лучи. Инновационная крышка открывается одним касанием, сохраняя вакуум.</p>
-                </div>
-                <div class="tech-visual text-center">
-                    <div class="jar-tech-mockup">
-                        <div class="cap-anim"></div>
-                        <div class="jar-body-anim"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 13. Письмо основателя -->
-    <section class="founder section-gold" id="founder">
-        <div class="container">
-            <div class="founder-card glass-card mx-auto" style="max-width: 800px; text-align: center; padding: 4rem 2rem;">
-                <h2 class="section-title text-white">Создано для себя. Доступно вам.</h2>
-                <p class="mt-4 text-white" style="font-size: 1.2rem; font-style: italic;">«Я искал решение своих проблем с пищеварением и иммунитетом, перепробовал десятки добавок, но нужного эффекта не было. Тогда мы собрали лучшую команду технологов в Турции, чтобы создать OILX — продукт, который работает.»</p>
-                <div class="founder-sign mt-4 text-white">
-                    <strong>Основатель BOONLAB</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 14. Мнение экспертов -->
-    <section class="experts section-light" id="experts">
-        <div class="container text-center">
-            <h2 class="section-title">Что говорят врачи</h2>
-            <div class="grid-2 mt-4">
-                <div class="expert-video glass-card">
-                    <div class="video-placeholder">▶ Play Video</div>
-                    <h3 class="mt-2">Д-р. Эндокринолог</h3>
-                </div>
-                <div class="expert-video glass-card">
-                    <div class="video-placeholder">▶ Play Video</div>
-                    <h3 class="mt-2">Нутрициолог</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 15. Качество и Доверие -->
-    <section class="trust section-dark" id="trust">
-        <div class="container text-center">
-            <h2 class="section-title text-white">Мировые стандарты качества</h2>
-            <div class="badges-grid mt-4">
-                <div class="badge-item glass-card">GMP</div>
-                <div class="badge-item glass-card">Halal</div>
-                <div class="badge-item glass-card">ISO 9001</div>
-                <div class="badge-item glass-card">100% Vegan</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 16. Отзывы -->
-    <section class="reviews section-light" id="reviews">
-        <div class="container">
-            <h2 class="section-title text-center">Результаты реальных людей</h2>
-            <div class="grid-3 mt-4">
-                <div class="review-card glass-card">
-                    <div class="stars gold">★★★★★</div>
-                    <p class="mt-2">"Ушла тяжесть после еды, появилось больше энергии по утрам. Пью уже второй месяц."</p>
-                    <strong class="mt-2" style="display: block;">— Алина К.</strong>
-                </div>
-                <div class="review-card glass-card">
-                    <div class="stars gold">★★★★★</div>
-                    <p class="mt-2">"Отличный комплекс. Раньше пил тмин ложками, капсулы намного удобнее и не жгут желудок."</p>
-                    <strong class="mt-2" style="display: block;">— Руслан М.</strong>
-                </div>
-                <div class="review-card glass-card">
-                    <div class="stars gold">★★★★★</div>
-                    <p class="mt-2">"Кожа очистилась за 3 недели применения! Я в восторге от результата."</p>
-                    <strong class="mt-2" style="display: block;">— Диана С.</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 17. FAQ (Slide: Ответы на частые вопросы) -->
-    <section class="faq section-light" id="faq">
-        <div class="container">
-            <h2 class="section-title">Ответы на частые вопросы:<br>Как это работает?</h2>
-            <p class="section-subtitle text-gray">Механика работы комплекса внутри тела.</p>
             
-            <div class="faq-grid mt-4">
-                <div class="faq-card">
-                    <h3>Q: Убьет ли комплекс полезную микрофлору?</h3>
-                    <p><strong>A: Нет.</strong> В отличие от синтетических антибиотиков, выверенные природные дозировки берегут здоровую флору.</p>
-                </div>
-                <div class="faq-card">
-                    <h3>Q: Что такое реакция отмирания (die-off)?</h3>
-                    <p><strong>A:</strong> Гибнущие грибки выделяют токсины. В OILX добавлен экстракт лимона, который смывает этот мусор, минимизируя тошноту.</p>
-                </div>
-                <div class="faq-card">
-                    <h3>Q: Как гвоздика помогает орегано?</h3>
-                    <p><strong>A:</strong> Она разрушает защитные «щиты» паразитов и парализует их, делая удар орегано в разы эффективнее.</p>
-                </div>
-                <div class="faq-card">
-                    <h3>Q: Почему так важно выведение (лимон)?</h3>
-                    <p><strong>A:</strong> Чтобы мертвые бактерии не гнили и не отравляли ваш организм изнутри.</p>
-                </div>
-                <div class="faq-card">
-                    <h3>Q: Помогает ли при вздутии?</h3>
-                    <p><strong>A: Да</strong>, устраняя те самые патогены и грибки, которые вызывают процессы брожения и газы.</p>
-                </div>
-            </div>
-
-            <div class="important-note dark mx-auto mt-4" style="text-align: center;">
-                <strong>ЧТО ВАЖНО ПОМНИТЬ:</strong><br>
-                OILX работает умно — беспощадно уничтожает врагов, но бережно щадит друзей.
+            <div class="important-note mx-auto" style="max-width: 800px;">
+                <strong>Синергия:</strong> Вместе компоненты работают в 5 раз сильнее, чем по отдельности.
             </div>
         </div>
     </section>
 
-    <!-- 18. Цены (Спецпредложения) -->
-    <section class="pricing section-light" id="buy">
-        <div class="container text-center">
-            <h2 class="section-title">Инвестиция в ваше здоровье</h2>
-            <div class="grid-2 mt-4 mx-auto" style="max-width: 800px;">
-                <div class="price-card glass-card p-4">
-                    <h3>1 Месяц</h3>
-                    <div class="price gold mt-2 mb-2" style="font-size: 2rem; font-weight: bold;">12 990 ₸</div>
-                    <p class="text-gray">1 банка (120 капсул)</p>
-                    <a href="#" class="btn-primary mt-4" style="display: inline-block;">Купить</a>
-                </div>
-                <div class="price-card glass-card p-4 highlight-border" style="border: 2px solid var(--gold-color);">
-                    <div class="badge-top gold-bg text-white px-2 py-1" style="display: inline-block; border-radius: 4px;">Выгодно</div>
-                    <h3 class="mt-2">Курс 3+1</h3>
-                    <div class="price gold mt-2 mb-2" style="font-size: 2rem; font-weight: bold;">38 970 ₸</div>
-                    <p class="text-gray">4 банки по цене 3</p>
-                    <a href="#" class="btn-primary mt-4" style="display: inline-block;">Купить курс</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 19. Где купить -->
-    <section class="where-to-buy section-dark" id="stores">
-        <div class="container text-center">
-            <h2 class="section-title text-white">Официальные партнеры</h2>
-            <div class="store-links mt-4" style="display: flex; justify-content: center; gap: 20px;">
-                <a href="#" class="btn-outline">Kaspi Магазин</a>
-                <a href="#" class="btn-outline">MAQAM</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 20. Knowledge Center -->
-    <section class="knowledge section-light" id="knowledge">
+    <!-- 14. Сравнение -->
+    <section>
         <div class="container">
-            <h2 class="section-title text-center">База знаний</h2>
+            <div class="section-label">Анализ</div>
+            <h2 class="section-title">Почему не просто <em>масло из аптеки</em>?</h2>
+            
+            <div class="compare-table mt-4">
+                <div class="compare-row header">
+                    <div class="compare-col">Критерий</div>
+                    <div class="compare-col">Обычное масло тмина</div>
+                    <div class="compare-col highlight">OILX Matrix</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-col" style="color: var(--text-muted);">Состав</div>
+                    <div class="compare-col">Один компонент</div>
+                    <div class="compare-col highlight">4 синергичных экстракта</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-col" style="color: var(--text-muted);">Биодоступность</div>
+                    <div class="compare-col">Низкая (разрушается в желудке)</div>
+                    <div class="compare-col highlight">Высокая (специальная формула)</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-col" style="color: var(--text-muted);">Действие</div>
+                    <div class="compare-col">Узконаправленное</div>
+                    <div class="compare-col highlight">Комплексное (весь ЖКТ)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Кому нужен OILX -->
+    <section>
+        <div class="container">
+            <div class="section-label">Аудитория</div>
+            <h2 class="section-title">Кому нужен <em>OILX</em>?</h2>
             <div class="grid-3 mt-4">
-                <a href="#" class="article-card glass-card" style="text-decoration: none; color: inherit; display: block; padding: 20px;">
-                    <h3>Влияние микробиома на стресс</h3>
-                    <span class="gold mt-2" style="display: inline-block;">Читать →</span>
-                </a>
-                <a href="#" class="article-card glass-card" style="text-decoration: none; color: inherit; display: block; padding: 20px;">
-                    <h3>Чем опасна Candida?</h3>
-                    <span class="gold mt-2" style="display: inline-block;">Читать →</span>
-                </a>
-                <a href="#" class="article-card glass-card" style="text-decoration: none; color: inherit; display: block; padding: 20px;">
-                    <h3>Правила приема БАДов</h3>
-                    <span class="gold mt-2" style="display: inline-block;">Читать →</span>
-                </a>
+                <div class="dark-card text-center">Предпринимателям</div>
+                <div class="dark-card text-center">Спортсменам</div>
+                <div class="dark-card text-center">Всем, кто заботится о здоровье</div>
             </div>
         </div>
     </section>
 
-    <!-- 21. Футер -->
-    <footer class="footer section-dark" style="padding: 4rem 0 2rem;">
+    <!-- 18. FAQ -->
+    <section id="faq">
         <div class="container">
-            <div class="footer-grid grid-3">
-                <div class="footer-brand">
-                    <h2 class="gold">BoonLab</h2>
-                    <p class="text-gray mt-2">Клиническая матрица восстановления.</p>
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Ответы на <em>вопросы</em></h2>
+            
+            <div class="mt-4" style="max-width: 800px; margin: 40px auto 0;">
+                <div class="acc-item">
+                    <div class="acc-header">Как принимать OILX?</div>
+                    <div class="acc-body">По 1 капсуле (или ложке) утром натощак за 30 минут до еды.</div>
                 </div>
-                <div class="footer-links" style="display: flex; flex-direction: column; gap: 10px;">
-                    <h4 class="text-white">Продукт</h4>
-                    <a href="#roles" class="text-gray" style="text-decoration: none;">Как работает</a>
-                    <a href="#composition" class="text-gray" style="text-decoration: none;">Состав</a>
-                    <a href="#faq" class="text-gray" style="text-decoration: none;">FAQ</a>
+                <div class="acc-item">
+                    <div class="acc-header">Есть ли противопоказания?</div>
+                    <div class="acc-body">Индивидуальная непереносимость компонентов, беременность. Проконсультируйтесь с врачом.</div>
                 </div>
-                <div class="footer-legal" style="display: flex; flex-direction: column; gap: 10px;">
-                    <h4 class="text-white">Правовая информация</h4>
-                    <a href="#" class="text-gray" style="text-decoration: none;">Политика конфиденциальности</a>
-                    <a href="#" class="text-gray" style="text-decoration: none;">Оферта</a>
-                    <p class="mt-2 text-gray" style="font-size: 0.9rem;">БАД. Не является лекарственным средством.</p>
+                <div class="acc-item">
+                    <div class="acc-header">Через сколько будет результат?</div>
+                    <div class="acc-body">Первые улучшения в пищеварении обычно заметны через 7-10 дней. Полный курс - 2 месяца.</div>
                 </div>
             </div>
-            <div class="footer-bottom mt-4 text-center text-gray" style="border-top: 1px solid #333; padding-top: 2rem;">
-                © 2026 BOONLAB. All rights reserved.
+            
+            <div class="important-note mx-auto" style="max-width: 800px;">
+                <strong>Остались вопросы?</strong> Напишите нам в поддержку, мы всегда на связи.
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- 21. Купить / Призыв -->
+    <section id="buy" style="padding-bottom: 0;">
+        <div class="container text-center">
+            <div class="section-label">Инвестиция</div>
+            <h2 class="section-title">Ваше здоровье начинается <em>здесь</em></h2>
+            <p class="section-subtitle mx-auto">Выберите подходящий курс и начните восстановление сегодня.</p>
+            
+            <div class="mt-4 mb-2">
+                <a href="#" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">Оформить предзаказ</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="mt-4">
+            <a href="#hero" class="footer-logo">BoonLab</a>
+            <ul class="footer-links">
+                <li><a href="#science">Наука</a></li>
+                <li><a href="#composition">Состав</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#buy">Купить</a></li>
+                <li><a href="#">Политика конфиденциальности</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 BoonLab. Все права защищены.</p>
+        </footer>
+    </section>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
