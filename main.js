@@ -186,6 +186,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Performant GSAP Parallax for Background Banners
+    gsap.utils.toArray('.parallax-bg').forEach(bg => {
+        gsap.to(bg, {
+            yPercent: 20, // Move down smoothly as you scroll
+            ease: "none",
+            scrollTrigger: {
+                trigger: bg.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    });
+
     // 5. Accordion Logic
     const accHeaders = document.querySelectorAll('.acc-header');
     accHeaders.forEach(header => {

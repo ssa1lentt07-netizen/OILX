@@ -282,23 +282,33 @@ nav.scrolled {
 .parallax-banner {
   width: 100%;
   height: 400px;
-  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: 1;
+  z-index: -1;
+  will-change: transform;
 }
 .parallax-banner::after {
   content: '';
   position: absolute;
   inset: 0;
   background: rgba(7, 7, 10, 0.4);
+  z-index: 0;
 }
-.parallax-banner.bg-water {
+.bg-water {
   background-image: url('./bg_water.jpg');
 }
-.parallax-banner.bg-silk {
+.bg-silk {
   background-image: url('./bg_silk.jpg');
 }
 
