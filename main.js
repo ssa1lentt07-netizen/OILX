@@ -1,6 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // 0. Lenis Smooth Scroll Setup
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Sync GSAP with Lenis
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time)=>{
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0, 0);
+
+    // 0.5 Custom Cursor Logic
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    if(cursor && cursorFollower) {
+        let posX = 0, posY = 0;
+        let mouseX = 0, mouseY = 0;
+        
+        gsap.to({}, 0.016, {
+            repeat: -1,
+            onRepeat: function() {
+                posX += (mouseX - posX) / 9;
+                posY += (mouseY - posY) / 9;
+                
+                gsap.set(cursorFollower, {
+                    css: {
+                        left: posX - 20,
+                        top: posY - 20
+                    }
+                });
+                gsap.set(cursor, {
+                    css: {
+                        left: mouseX - 4,
+                        top: mouseY - 4
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Add hover effect to links and interactive elements
+        const hoverElements = document.querySelectorAll('a, button, .comp-card, .product-card');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorFollower.classList.add('active');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorFollower.classList.remove('active');
+            });
+        });
+    }
+
     // 1. Sticky Navbar Logic
     const navbar = document.getElementById('nav-bar');
     window.addEventListener('scroll', () => {
@@ -72,18 +143,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 4. GSAP Scroll Animations for Sections
+    // 4. GSAP Scroll Animations for Sections & Text Reveal
     gsap.utils.toArray('section').forEach(sec => {
         gsap.from(sec, {
             scrollTrigger: {
                 trigger: sec,
-                start: "top 80%",
+                start: "top 85%",
                 toggleActions: "play none none reverse"
             },
             opacity: 0,
-            y: 30,
+            y: 40,
+            duration: 1.2,
+            ease: "power3.out"
+        });
+    });
+
+    // Simple Text Reveal for Section Titles
+    gsap.utils.toArray('.section-title').forEach(title => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 90%",
+            },
+            opacity: 0,
+            y: 20,
             duration: 1,
             ease: "power2.out"
+        });
+    });
+
+    // Parallax effect for product images
+    gsap.utils.toArray('.product-img-wrap img').forEach(img => {
+        gsap.to(img, {
+            yPercent: 10,
+            ease: "none",
+            scrollTrigger: {
+                trigger: img.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
         });
     });
 

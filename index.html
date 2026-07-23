@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 
     <!-- Анимация падающих капель масла (Вместо сакуры) -->
     <div class="drops-container" id="drops-container"></div>
@@ -248,6 +251,84 @@
         </div>
     </section>
 
+    <!-- 16. Линейка БАДов (Supplements) -->
+    <section id="products">
+        <div class="container">
+            <div class="section-label">Наши формулы</div>
+            <h2 class="section-title">Линейка <em>премиальных БАДов</em></h2>
+            
+            <div class="grid-3 mt-4">
+                <div class="product-card dark-card text-center" style="padding: 30px;">
+                    <div class="product-img-wrap">
+                        <img src="./bottle.jpg" alt="OILX Matrix" style="width: 100%; border-radius: 12px;">
+                    </div>
+                    <h3 class="mt-4">OILX: Original</h3>
+                    <div class="product-desc">
+                        <p>Базовая матрица для восстановления кишечника и поддержки иммунитета.</p>
+                        <span class="active-comp mt-2">12 000 ₸</span>
+                    </div>
+                </div>
+                <div class="product-card dark-card text-center" style="padding: 30px;">
+                    <div class="product-img-wrap">
+                        <img src="./bottle_silver.jpg" alt="OILX Silver" style="width: 100%; border-radius: 12px;">
+                    </div>
+                    <h3 class="mt-4">OILX: Silver</h3>
+                    <div class="product-desc">
+                        <p>Усиленная формула с коллоидным серебром для мощной детоксации.</p>
+                        <span class="active-comp mt-2">15 000 ₸</span>
+                    </div>
+                </div>
+                <div class="product-card dark-card text-center" style="padding: 30px;">
+                    <div class="product-img-wrap">
+                        <img src="./bottle_black.jpg" alt="OILX Black" style="width: 100%; border-radius: 12px;">
+                    </div>
+                    <h3 class="mt-4">OILX: Black Edition</h3>
+                    <div class="product-desc">
+                        <p>Максимальная концентрация полифенолов для спортсменов и биохакеров.</p>
+                        <span class="active-comp mt-2">18 000 ₸</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. Отзывы (Reviews Slider) -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-label">Опыт клиентов</div>
+            <h2 class="section-title">Истории <em>восстановления</em></h2>
+            
+            <div class="reviews-slider mt-4">
+                <div class="review-track">
+                    <div class="review-card dark-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Ушла хроническая усталость и вздутие. Пью OILX уже второй месяц, результаты невероятные. Мой гастроэнтеролог в шоке."</p>
+                        <h4 class="mt-4" style="color: var(--gold);">Алина К.</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Предприниматель</span>
+                    </div>
+                    <div class="review-card dark-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Долгое время мучался от проблем с кожей. Оказалось, всё дело в кишечнике. Формула с тмином и орегано сработала безупречно."</p>
+                        <h4 class="mt-4" style="color: var(--gold);">Марат Д.</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Спортсмен</span>
+                    </div>
+                    <div class="review-card dark-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Качество сна улучшилось, появилась энергия по утрам. Эвгенол действительно снимает воспаления. Рекомендую всем!"</p>
+                        <h4 class="mt-4" style="color: var(--gold);">Елена С.</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Дизайнер</span>
+                    </div>
+                    <div class="review-card dark-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Лучший продукт на рынке. Я перепробовал много добавок, но такая синергия экстрактов встречается впервые. Вкус специфический, но эффект того стоит."</p>
+                        <h4 class="mt-4" style="color: var(--gold);">Виктор Р.</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Биохакер</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 18. FAQ -->
     <section id="faq">
         <div class="container">
@@ -302,6 +383,7 @@
     </section>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="./main.js"></script>

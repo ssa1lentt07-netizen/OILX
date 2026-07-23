@@ -212,6 +212,75 @@ nav.scrolled {
 .comp-card:hover h3 { color: var(--gold); }
 .active-comp { display: inline-block; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-top: 10px; font-weight: 600; }
 
+/* 3D PRODUCTS (БАДы) */
+.product-card {
+  perspective: 1000px;
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+}
+.product-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth bouncy 3D spin */
+}
+.product-card:hover .product-img-wrap {
+  transform: rotateY(360deg);
+}
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  backface-visibility: hidden; /* Prevent flickering during rotation */
+}
+.product-desc {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+.product-card:hover .product-desc {
+  opacity: 1;
+  max-height: 200px;
+  transform: translateY(0);
+  margin-top: 15px;
+}
+
+/* REVIEWS SLIDER */
+.reviews-slider {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.reviews-slider::-webkit-scrollbar {
+  height: 8px;
+}
+.review-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  padding: 0 10px;
+}
+.review-card {
+  width: 350px;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+.review-stars {
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
 /* STRESS FLOW */
 .stress-flow { padding: 80px 0; background: linear-gradient(to bottom, var(--bg) 0%, var(--surface) 100%); }
 .flow-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
@@ -255,4 +324,39 @@ footer { padding: 60px 0; border-top: 1px solid var(--border); background: var(-
   .compare-row.header { display: none; }
   .flow-container { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); }
+  .cursor, .cursor-follower { display: none !important; }
+}
+
+/* CUSTOM CURSOR */
+body {
+  cursor: none; /* Hide default cursor */
+}
+a, button, .comp-card, .product-card {
+  cursor: none;
+}
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+}
+.cursor-follower {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+.cursor-follower.active {
+  width: 60px; height: 60px;
+  background: rgba(212, 175, 55, 0.1);
+  border-color: transparent;
 }
